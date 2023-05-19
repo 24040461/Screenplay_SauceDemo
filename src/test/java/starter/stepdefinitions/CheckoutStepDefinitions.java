@@ -4,8 +4,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.ensure.Ensure;
+import starter.Actions.CheckoutFormActions.FillCheckoutForm;
 import starter.Actions.cartActions.AddItemToCart;
-import starter.Actions.checkoutInfoActions.CheckoutProcess;
+import starter.Actions.checkoutInfoActions.ContinueCheckoutProcess;
 import starter.helpers.pageFactory.cartPage;
 import starter.helpers.pageFactory.checkoutPage;
 
@@ -27,10 +28,10 @@ public class CheckoutStepDefinitions {
 
     @And("{actor} fills out all the fields {string} {string} {string}")
     public void heFillsOutAllTheFields(Actor actor,String firstN, String secondN, String postCode) {
-        actor.attemptsTo(CheckoutProcess.withFirstNameForm(firstN));
-        actor.attemptsTo(CheckoutProcess.withSecondNameForm(secondN));
-        actor.attemptsTo(CheckoutProcess.withPostcodeForm(postCode));
-        actor.attemptsTo(CheckoutProcess.withClickingContinueButton());
+        actor.attemptsTo(FillCheckoutForm.withFirstName(firstN));
+        actor.attemptsTo(FillCheckoutForm.withSecondName(secondN));
+        actor.attemptsTo(FillCheckoutForm.withPostcode(postCode));
+        actor.attemptsTo(ContinueCheckoutProcess.byClickingContinueButton());
     }
 
     @And("{actor} sees the total price is {string}")
@@ -40,7 +41,7 @@ public class CheckoutStepDefinitions {
 
     @And("{actor} clicks Finish")
     public void heClicksFinish(Actor actor) {
-        actor.attemptsTo(CheckoutProcess.withClickingFinishButton());
+        actor.attemptsTo(ContinueCheckoutProcess.byClickingFinishButton());
     }
 
     @Then("{actor} sees {string}")

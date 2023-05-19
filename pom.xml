@@ -13,8 +13,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <serenity.version>3.6.21</serenity.version>
         <encoding>UTF-8</encoding>
-        <tags></tags>
-        <webdriver.base.url></webdriver.base.url>
+<!--        <tags></tags>-->
+<!--        <webdriver.base.url></webdriver.base.url>-->
     </properties>
     <dependencies>
         <dependency>

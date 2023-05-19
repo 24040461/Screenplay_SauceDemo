@@ -1,6 +1,6 @@
 Feature: Checkout process
 
-  Scenario: Check cart updates when item added to it
+  Scenario: Checkout process end to end
     Given Rama is on home page
     When he adds an item to the cart
     And he clicks the cart button in the top right
