@@ -3,6 +3,7 @@ package starter.stepdefinitions;
 import io.cucumber.java.en.*;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.ensure.Ensure;
+import net.serenitybdd.screenplay.ui.PageElement;
 import starter.helpers.*;
 import starter.Actions.loginActions.CorrectlyLogin;
 import starter.Actions.loginActions.IncorrectlyLogin;
@@ -32,8 +33,10 @@ public class LoginStepDefinitions {
     }
 
     @Then("{actor} see {string} as a title in the home page")
-    public void heSeeAsATitleInTheHomePage(Actor actor,String expectedTitle) {
-        actor.attemptsTo(Ensure.that(homePage.products_title).hasText(expectedTitle));
+    public void heSeeAsATitleInTheHomePage(Actor actor,String isExpectedTitle) {
+//      actor.attemptsTo(Ensure.that(homePage.products_title).hasText(expectedTitle));
+//      actor.attemptsTo(Ensure.that(PageElement.locatedBy(".title")).hasText(expectedTitle));
+        actor.attemptsTo(CorrectlyLogin.thenChecksTitle(isExpectedTitle));
     }
 
     @And("{actor} enters incorrect password {string}")

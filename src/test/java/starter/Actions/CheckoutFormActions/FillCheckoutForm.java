@@ -3,6 +3,7 @@ package starter.Actions.CheckoutFormActions;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.ui.InputField;
 import starter.helpers.pageFactory.checkoutPage;
 
 public class FillCheckoutForm {
@@ -18,7 +19,9 @@ public class FillCheckoutForm {
     }
     public static Performable withPostcode(String postCode) {
         return Task.where("Adding first name to the form",
-                Enter.theValue(postCode).into(checkoutPage.post_code)
+//                Enter.theValue(postCode).into(checkoutPage.post_code)
+                  Enter.theValue(postCode).into(InputField.withNameOrId("postal-code"))
         );
     }
+
 }

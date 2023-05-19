@@ -4,6 +4,9 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.ensure.Ensure;
+import net.serenitybdd.screenplay.ui.PageElement;
+import starter.helpers.pageFactory.homePage;
 import starter.helpers.pageFactory.loginPage;
 
 public class CorrectlyLogin {
@@ -22,5 +25,9 @@ public class CorrectlyLogin {
                 Click.on(loginPage.btn_login)
         );
     }
-
+    public static Performable thenChecksTitle(String expectedTitle) {
+        return Task.where("Clicking the login button",
+                Ensure.that(PageElement.locatedBy(".title")).hasText(expectedTitle)
+        );
+    }
 }
